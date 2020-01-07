@@ -1,0 +1,18 @@
+import java.security.SecureRandom;
+import java.util.Random;
+public class secRand {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SecureRandom sr = new SecureRandom();
+		byte[] values = new byte[20];
+		sr.nextBytes(values);
+		
+		System.out.println(sr);
+		
+		Random ran = new Random();
+		System.out.println(ran.nextInt(60));
+
+	}
+
+}

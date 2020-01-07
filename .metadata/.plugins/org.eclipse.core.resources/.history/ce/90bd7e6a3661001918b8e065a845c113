@@ -1,0 +1,85 @@
+package MasterPackage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
+public class Barc {
+  /**
+   * Iterate through each line of input.
+   */
+  public static void main(String[] args) throws IOException {
+    InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
+    BufferedReader in = new BufferedReader(reader);
+    String line;
+//    while ((line = in.readLine()) != null) {
+//    	System.out.println(line);
+//    }
+    
+    
+     
+	BTree T = new BTree(); 
+	T.root = new Node(30); 
+	T.root.left = new Node(8); 
+	T.root.right = new Node(52); 
+	T.root.left.left = new Node(3); 
+	T.root.left.right = new Node(20); 
+	T.root.left.right.left = new Node(10); 
+	T.root.left.right.right = new Node(29); 
+
+	int n1 = 8, n2 = 52; 
+	Node t = T.lca(T.root, n1, n2); 
+	System.out.println("LCA of " + n1 + " and " + n2 + " is " + t.data); 
+
+	n1 = 14; 
+	n2 = 8; 
+	t = T.lca(T.root, n1, n2); 
+	System.out.println("LCA of " + n1 + " and " + n2 + " is " + t.data); 
+
+	n1 = 10; 
+	n2 = 22; 
+	t = T.lca(T.root, n1, n2); 
+	System.out.println("LCA of " + n1 + " and " + n2 + " is " + t.data); 
+
+    
+    
+    
+    
+  }
+}
+
+class Node 
+{ 
+	int data; 
+	Node left, right; 
+
+	Node(int item) 
+	{ 
+		data = item; 
+		left = right = null; 
+	} 
+} 
+
+class BTree 
+{ 
+	Node root; 
+	
+	/* Function to find LCA of n1 and n2. The function assumes that both 
+	n1 and n2 are present in BST */
+	Node lca(Node node, int n1, int n2) 
+	{ 
+		if (node == null) 
+			return null; 
+
+		// If both n1 and n2 are smaller than root, then LCA lies in left 
+		if (node.data > n1 && node.data > n2) 
+			return lca(node.left, n1, n2); 
+
+		// If both n1 and n2 are greater than root, then LCA lies in right 
+		if (node.data < n1 && node.data < n2) 
+			return lca(node.right, n1, n2); 
+
+		return node; 
+	}
+}
+

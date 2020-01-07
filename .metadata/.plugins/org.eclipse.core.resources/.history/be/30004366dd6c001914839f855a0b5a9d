@@ -1,0 +1,23 @@
+package MasterPackage;
+
+public class amazon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr =  {20,30,10,40,50};
+		int i , temp , originalLen = arr.length;
+		int len = originalLen;
+		for( i = 0 ; i < originalLen / 2 ; i ++ )
+		{
+			temp = arr[ len - 1 ];
+			arr[ len - 1 ] = arr[i];
+			arr[i] = temp;
+			len -= 1;
+		}
+		for (int x:arr){
+			System.out.println(x);
+		}
+		
+	}
+
+}
