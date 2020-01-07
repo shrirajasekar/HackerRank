@@ -41,9 +41,11 @@ public class leftShiftArray {
 	}
 	
 	public static void printArray(int [] arr){
-		for (int i : arr) {
-			System.out.println(i);
+		String out = Integer.toString(arr[0]);
+		for (int i=1;i<arr.length;i++) {
+			out = out +" "+ Integer.toString(arr[i]);
 		}
+		System.out.println(out);
 	}
 
 }
