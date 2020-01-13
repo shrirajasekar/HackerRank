@@ -1,4 +1,4 @@
-package HackerRack;
+package HackerRack.BinaryTree;
 
 import java.util.Scanner;
 
